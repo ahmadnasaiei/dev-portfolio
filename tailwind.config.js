@@ -17,6 +17,13 @@ module.exports = {
       fontFamily: {
         consolas: ['Inconsolata', 'monospace'],
         rockSalt: ['Rock Salt', 'cursive']
+      },
+      boxShadow: {
+        'b-shadow': '0 28px 16px -26px black',
+        'glow' :  [
+          "0 0px 20px rgba(255,255, 255, 0.35)",
+          "0 0px 65px rgba(255, 255,255, 0.2)"
+        ]
       }
     },
   },

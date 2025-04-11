@@ -1,5 +1,8 @@
 import React from 'react'
-import heroImage from '../../assets/hero.jpg'
+import heroImg from '../../assets/hero.jpg'
+import heroImg2 from '../../assets/hero2.jpg'
+import heroImg2landscape from '../../assets/hero2-landscape.jpg'
+import heroImg2square from '../../assets/hero2-square.jpg'
 import './home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'
@@ -67,7 +70,7 @@ function home() {
 		<>
 			<div className='main flex flex-col items-center min-h-screen pt-14 md:pt-32'>
 				<div className='mt-10 mb-6'>
-					<img src={heroImage} className="w-60 clip-circle cursor-pointer duration-200 md:w-80" alt="" />
+					<img src={heroImg} className="w-60 clip-circle cursor-pointer duration-200 md:w-80" alt="" />
 				</div>
 
 				<div className='flex py-10'>
@@ -86,13 +89,44 @@ function home() {
 					<button className='flex items-center gap-2 text-lg mt-4 px-9 py-2.5 border-2 tracking-widest border-ascent text-ascent rounded-full hover:bg-ascent hover:text-bg duration-150 group' onClick={() => window.location.replace("/#about")}>More of me <FontAwesomeIcon icon={faAnglesDown} className='group-hover:animate-bounce'/></button>
 				</div>
 			</div>
+
 			
-			{/* <div className='zigzag'/> */}
-			<section id='about' className='flex justify-center py-20 bg-gray-200'>
-				<div className='flex-col justify-center text-3xl lg:w-5/6'>
+			<div className='zigzag'/>
+			<section id='about' className='flex flex-col items-center min-h-fit py-20 bg-gray-200'>
+				<div className='flex w-5/6 md:w-4/6'>
+					<div className='hidden min-w-80 lg:block'>
+						<img src={heroImg2} alt="" className='w-80 h-auto shadow-b-shadow saturate-150 duration-100' />
+					</div>
+					<div className='lg:ml-36'>
+						<div className='flex'>
+							<h1 className='font-medium mb-3 text-3xl md:text-4xl'>A few bytes about me</h1>
+							<Star className='h-10 w-10 ml-4 mt-1.5'/>
+						</div>
+						<p className='sm-text text-sm'>
+							My passion for tech started early—while others read Ujang or Gempak, I was all about Majalah PC. That love for all things digital led me to pursue Computer Science at UiTM Machang, my top UPU pick. It was there I got my hands dirty with core fundamentals and built several hands-on projects that laid the groundwork for everything that came next. <br /><br />
+
+							Post-diploma, I briefly worked as a Graphic Designer—self-taught in Photoshop and Illustrator—before continuing my studies in Information Systems (Hons.) during the pandemic via distance learning. Despite the challenges, I led project teams and developed a real estate eCommerce site—integrating web scraping using Python and React for my final year project. <br /><br />
+
+							Professionally, I kicked off with an internship at PETRONAS Dagangan Berhad as a Software Engineer, building ARENA—an internal web-based LNG bidding system. There, I worked with technologies like React, NextJS, NodeJS, Tailwind, and PostgreSQL, and got my first exposure to how enterprise systems operate at scale. <br /><br />
+
+							After graduating, I joined PETRONAS Digital Sdn Bhd as a Front-End Developer. I worked on GO Dashboard, a critical platform for upper management showcasing real-time data from PETRONAS' global oil rigs. For two years, I collaborated in a cross-functional team of PMs, backend and fullstack devs, data engineers, UI/UX designers, and testers—gaining deep insight into agile product development and enterprise delivery. <br /><br />
+
+							I'm always exploring new technologies, sharpening my skills, and seeking the next challenge to grow even further. Let's build something amazing together. 🫱🏼‍🫲🏻
+						</p>
+						<div className='min-w-full pt-10 lg:hidden'>
+							<img src={heroImg2square} alt="" className='min-w-full h-auto' />
+						</div>
+					</div>
+				</div>
+			</section>
+			<div className='zigzag rotate-180'/>
+
+
+			<section id='' className='main flex justify-center py-20'>
+				<div className='flex-col justify-center lg:w-5/6'>
 					<div className='px-8 md:px-20 lg:px-52'>
 						<div className='flex'>
-							<h1 className='flex font-medium mb-3 md:text-4xl'>My Primary Toolbelt</h1>
+							<h1 className='flex font-medium text-3xl mb-3 md:text-4xl'>My Primary Toolbelt</h1>
 							<Star className='h-10 w-10 ml-4 mt-1.5'/>
 						</div>
 						<p className='sm-text text-sm md:text-base'>As much as I love working with my current stack, I'm always open to new challenges that help me grow — pushing me beyond who I was yesterday, and bringing me closer to who I aim to be tomorrow.</p>
@@ -102,7 +136,7 @@ function home() {
 							{techStack1.map((item, i) => (
 								<Col key={i} span={4}>
 									<div className='flex flex-col items-center group'>
-										<div className='w-12 h-12 md:w-20 md:h-20 filter group-hover:transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12'>
+										<div className='w-12 h-12 md:w-20 md:h-20 filter group-hover:transform transition-all duration-200 group-hover:scale-110 group-hover:rotate-12'>
 											<item.stackIcon className='w-12 h-12 md:w-20 md:h-20' />
 										</div>
 										<p className='mt-4 text-xs md:text-base'>{item.stackName}</p>
@@ -114,7 +148,7 @@ function home() {
 							{techStack2.map((item, i) => (
 								<Col key={i} span={4}>
 									<div className='flex flex-col items-center group'>
-										<div className='w-12 h-12 md:w-20 md:h-20 filter group-hover:transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6'>
+										<div className='w-12 h-12 md:w-20 md:h-20 filter group-hover:transform transition-all duration-200 group-hover:scale-110 group-hover:rotate-12'>
 											<item.stackIcon className='w-12 h-12 md:w-20 md:h-20' />
 										</div>
 										<p className='mt-4 text-xs md:text-base'>{item.stackName}</p>
@@ -126,8 +160,25 @@ function home() {
 				</div>
 			</section>
 
-			<section className='main flex flex-col items-center min-h-fit pt-14 md:pt-32'>
 
+			<section id='' className='flex justify-center min-h-fit py-20'>
+				<div className='w-5/6 bg-gray-200 p-14 md:w-4/6'>
+					<div className='flex flex-col items-center'>
+						<h1 className='font-medium text-3xl mb-3 md:text-4xl'>Featured Work</h1>
+						<p className='sm-text'>From pixels to production—these are the things I've crafted with code, caffeine, and curiosity that I'm proud of.</p>
+					</div>
+					<Row className='flex justify-around mt-14'>
+						<Col span={8} className=''>
+							<span className='text-xl font-rocksalt'>ANPR Subsidized Petrol Subsidized Petrol</span>
+						</Col>
+						<Col span={8} className=''>
+							<img src={heroImg2square} alt="" className='w-3/4 rounded-2xl' />
+						</Col>
+						<Col span={8} className='flex-grow'>
+							<button className='gap-2 text-lg px-9 py-2.5 border-2 tracking-widest border-ascent text-ascent rounded-full hover:bg-ascent hover:text-bg duration-150 group'>View project</button>
+						</Col>
+					</Row>
+				</div>
 			</section>
 		</>
 	)

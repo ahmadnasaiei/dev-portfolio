@@ -29,6 +29,28 @@
     transform:rotate(-9deg);
 }
 
+/* flex items-center gap-2 text-lg mt-4 px-9 py-2.5 border-2 tracking-widest border-ascent text-ascent rounded-full hover:bg-ascent hover:text-bg duration-150 group */
+
+.defBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem;
+    margin-top: 1rem; /* 16px */
+    padding-left: 2.25rem; /* 36px */;
+    padding-right: 2.25rem;
+	padding-top: 0.625rem; /* 10px */;
+    padding-bottom: 0.625rem;
+	border-width: 2px;
+	letter-spacing: 0.1em;
+	--tw-border-opacity: 1;
+    border-color: rgb(162 123 92 / var(--tw-border-opacity, 1));
+	--tw-text-opacity: 1;
+    color: rgb(162 123 92 / var(--tw-text-opacity, 1));
+	border-radius: 9999px;
+}
+
 #id {
     scroll-behavior: smooth;
 }
