@@ -5,67 +5,14 @@ import heroImg2landscape from '../../assets/hero2-landscape.jpg'
 import heroImg2square from '../../assets/hero2-square.jpg'
 import './home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { Col, Row } from 'antd'
-import { ReactComponent as AntDesign } from '../../assets/svg-icon/ant-design.svg';
-import { ReactComponent as Figma } from '../../assets/svg-icon/figma.svg';
-import { ReactComponent as Git } from '../../assets/svg-icon/git.svg';
-import { ReactComponent as NextJS } from '../../assets/svg-icon/nextjs.svg';
-import { ReactComponent as NodeJS } from '../../assets/svg-icon/nodejs.svg';
-import { ReactComponent as PostgreSQL } from '../../assets/svg-icon/postgresql.svg';
-import { ReactComponent as ReactIcon } from '../../assets/svg-icon/react.svg';
-import { ReactComponent as Tailwind } from '../../assets/svg-icon/tailwind.svg';
-import { ReactComponent as TypeScriptIcon } from '../../assets/svg-icon/typescript.svg';
-import { ReactComponent as Vercel } from '../../assets/svg-icon/vercel.svg';
 import { ReactComponent as Star } from '../../assets/svg-icon/star.svg';
-import Navbar from '../../components/NavBar/navbar';
+import { techStack1, techStack2, projects } from '../../data/dataArr'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
 
 function home() {
-	const techStack1 = [
-		{
-			stackIcon: ReactIcon,
-			stackName: 'React'
-		},
-		{
-			stackIcon: TypeScriptIcon,
-			stackName: 'TypeScript'
-		},
-		{
-			stackIcon: NextJS,
-			stackName: 'NextJS'
-		},
-		{
-			stackIcon: NodeJS,
-			stackName: 'NodeJS'
-		},
-		{
-			stackIcon: PostgreSQL,
-			stackName: 'PostgreSQL'
-		},
-	]
-	const techStack2 = [
-		{
-			stackIcon: Tailwind,
-			stackName: 'Tailwind CSS'
-		},
-		{
-			stackIcon: AntDesign,
-			stackName: 'Ant Design'
-		},
-		{
-			stackIcon: Figma,
-			stackName: 'Figma'
-		},
-		{
-			stackIcon: Git,
-			stackName: 'Git'
-		},
-		{
-			stackIcon: Vercel,
-			stackName: 'Vercel'
-		},
-	]
-
 	return (	
 		<>
 			<div className='main flex flex-col items-center min-h-screen pt-14 md:pt-32'>
@@ -94,7 +41,7 @@ function home() {
 			<div className='zigzag'/>
 			<section id='about' className='flex flex-col items-center min-h-fit py-20 bg-gray-200'>
 				<div className='flex w-5/6 md:w-4/6'>
-					<div className='hidden min-w-80 lg:block'>
+					<div className='hidden min-w-80 lg:flex items-center'>
 						<img src={heroImg2} alt="" className='w-80 h-auto shadow-b-shadow saturate-150 duration-100' />
 					</div>
 					<div className='lg:ml-36'>
@@ -164,20 +111,48 @@ function home() {
 			<section id='' className='flex justify-center min-h-fit py-20'>
 				<div className='w-5/6 bg-gray-200 p-14 md:w-4/6'>
 					<div className='flex flex-col items-center'>
-						<h1 className='font-medium text-3xl mb-3 md:text-4xl'>Featured Work</h1>
+						<div className='flex'>
+							<Star className='h-10 w-10 ml-4 mt-1.5'/>
+							<h1 className='font-medium text-3xl mb-3 md:text-4xl'>Featured Work </h1>
+							<Star className='h-10 w-10 ml-4 mt-1.5'/>
+						</div>
 						<p className='sm-text'>From pixels to production—these are the things I've crafted with code, caffeine, and curiosity that I'm proud of.</p>
 					</div>
-					<Row className='flex justify-around mt-14'>
-						<Col span={8} className=''>
-							<span className='text-xl font-rocksalt'>ANPR Subsidized Petrol Subsidized Petrol</span>
-						</Col>
-						<Col span={8} className=''>
-							<img src={heroImg2square} alt="" className='w-3/4 rounded-2xl' />
-						</Col>
-						<Col span={8} className='flex-grow'>
-							<button className='gap-2 text-lg px-9 py-2.5 border-2 tracking-widest border-ascent text-ascent rounded-full hover:bg-ascent hover:text-bg duration-150 group'>View project</button>
-						</Col>
-					</Row>
+					{projects.map((d, i) => (
+						<>
+							<Row key={i} className="flex justify-around mt-14">
+								<Col span={8}>
+									<div className="flex h-full items-center pr-14">
+										<div className="flex flex-col">
+											<span className="text-xl font-medium">{d.projName}</span>
+											<p className='sm-text mt-4'>{d.projDesc}</p>
+											<div className='flex mt-4'>
+												{d.projStack.map((item, i) => (
+													<span key={i} className='sm-text !font-semibold mr-4'>{item}</span>
+												))}
+											</div>
+										</div>
+									</div>
+								</Col>
+								<Col span={8}>
+									<div className="flex items-center justify-center h-full">
+										<img src={d.projImg} alt="" className="w-3/4 rounded-2xl" />
+									</div>
+								</Col>
+								<Col span={8}>
+									<div className="flex items-center justify-end h-full">
+										<button className="gap-2 text-lg px-9 py-2.5 border-2 tracking-widest border-ascent text-ascent rounded-full hover:bg-ascent hover:text-gray-200 duration-150">
+											View project <FontAwesomeIcon icon={faArrowUp} className='rotate-45' />
+										</button>
+									</div>
+								</Col>
+							</Row>
+							<hr />
+						</>
+					))}
+					<div className='flex justify-center'>
+						<FontAwesomeIcon icon={faGithub} className='text-4xl' />
+					</div>
 				</div>
 			</section>
 		</>
